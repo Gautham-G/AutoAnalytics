@@ -32,7 +32,7 @@ if uploaded_file is not None:
   y_test = np.array(test[response_col])
   
   b_hat = np.linalg.inv(x_train.T@x_train)@x_train.T@y_train
-  y_hat = b_hat[1]*x_test
+  y_hat = b_hat*x_test
   
   
   fig, ax = plt.subplots()
