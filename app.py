@@ -35,7 +35,8 @@ if uploaded_file is not None:
   st.write(bias_col.shape)
   st.write(x_train.shape)
   x_train = np.hstack((bias_col, x_train))
-  
+  st.write(x_train.shape)
+
   b_hat = np.linalg.inv(x_train.T@x_train)@x_train.T@y_train
   y_hat = b_hat*x_test
   
