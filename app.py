@@ -46,9 +46,12 @@ if uploaded_file is not None:
   
   ax.plot(x_test, y_test, label = 'test truth')
   ax.plot(x_test, y_hat, label = 'test pred')
-
+  ax.legend()
+ 
   st.pyplot(fig)
   
+  
+  st.write('RMSE is ', np.linalg.norm(y_hat-y_test))
     
   
 #   choose alpha with st.slider
