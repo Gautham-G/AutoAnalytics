@@ -12,5 +12,7 @@ if uploaded_file is not None:
   
   y = st.selectbox('Choose your response variable (y)', df.columns)
   st.write('you selected', y)
+  data = st.multiselect("Predictor variables (x)", df.columns)
+  
   
   
