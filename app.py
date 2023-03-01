@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 
-st.title("Custom Auto Analytics!")
+st.title("Simple (Linear regression) auto analytics!")
 
 uploaded_file = st.file_uploader("Upload a CSV format dataframe")
 if uploaded_file is not None:
