@@ -31,6 +31,9 @@ if uploaded_file is not None:
   y_train = np.array(train[data_columns])
   y_test = np.array(test[response_col])
   
+  bias_col = np.ones(len(x_train))
+  x_train = np.vstack((bias_col, x_train))
+  
   b_hat = np.linalg.inv(x_train.T@x_train)@x_train.T@y_train
   y_hat = b_hat*x_test
   
