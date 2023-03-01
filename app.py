@@ -14,5 +14,5 @@ if uploaded_file is not None:
   st.write('you selected', y)
   data = st.multiselect("Predictor variables (x)", df.columns)
   
-  plt.plot(x, y)
+  st.plot(x, y)
   
