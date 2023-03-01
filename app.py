@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 st.title("Simple (Linear regression) auto analytics!")
 
@@ -14,5 +14,5 @@ if uploaded_file is not None:
   st.write('you selected', y)
   data = st.multiselect("Predictor variables (x)", df.columns)
   
-  
+  plt.plot(x, y)
   
