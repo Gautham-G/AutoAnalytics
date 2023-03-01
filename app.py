@@ -7,12 +7,45 @@ st.title("Simple (Linear regression) auto analytics!")
 
 uploaded_file = st.file_uploader("Upload a CSV format dataframe")
 if uploaded_file is not None:
+  
+# Find a way to dynamically change type of column
+# Find a way to automatically impute null values 
+
   df = pd.read_csv(uploaded_file)
   st.write(df.head())
   
-  y = st.selectbox('Choose your response variable (y)', df.columns)
-  st.write('you selected', y)
-  data = st.multiselect("Predictor variables (x)", df.columns)
+  response_col = st.selectbox('Choose your response variable (y)', df.columns)
+  st.write('Your response variable is : ', response_col)
   
-  st.plot(x, y)
+  data_columns = st.multiselect("Predictor variables (x)", df.columns)
+  
+  x = df[df[data_columns]]
+  y = df[df[response_col]]
+  
+  train = df.sample(frac=0.8,random_state=200)
+  test = df.drop(train.index)
+
+  x_train = np.array(train[train[data_columns]])
+  x_test = np.array(test[test[response_col]])
+  
+  y_train = np.array(train[train[data_columns]])
+  y_test = np.array(test[test[response_col]])
+  
+  b_hat = np.linalg.inv(x_train.T@x_train)x_train.T@y_train
+  y_hat = b_hat[0] + b_hat[1]*x_test
+  
+  
+  fig, ax = plt.subplots()
+  
+  ax.plot(x_test, y_test, label = 'test truth')
+  ax.plot(x_test, y_hat, label = 'test pred')
+
+  st.pyplot(fig)
+  
+    
+  
+#   choose alpha with st.slider
+#   display type of plot with st.multiselect
+#   display qq, residual etc
+#   Find a way to check for multi
   
