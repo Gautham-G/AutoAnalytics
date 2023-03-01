@@ -50,8 +50,12 @@ if uploaded_file is not None:
  
   st.pyplot(fig)
   
-  
-  st.write('RMSE is ', np.linalg.norm(y_hat-y_test))
+  rmse = np.linalg.norm(y_hat-y_test)
+  st.write('RMSE is ', rmse)
+  if(rmse<1e-5):
+    st.write('Woah! Thats a great model!')
+  else:
+    st.write('Bad model :(')
     
   
 #   choose alpha with st.slider
