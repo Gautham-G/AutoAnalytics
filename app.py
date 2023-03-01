@@ -31,7 +31,7 @@ if uploaded_file is not None:
   y_train = np.array(train[train[data_columns]])
   y_test = np.array(test[test[response_col]])
   
-  b_hat = np.linalg.inv(x_train.T@x_train)x_train.T@y_train
+  b_hat = np.linalg.inv(x_train.T@x_train)@x_train.T@y_train
   y_hat = b_hat[0] + b_hat[1]*x_test
   
   
