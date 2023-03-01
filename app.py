@@ -32,13 +32,13 @@ if uploaded_file is not None:
   y_test = np.array(test[response_col])
   
   bias_col = np.ones((len(x_train), 1))
-  st.write(bias_col.shape)
-  st.write(x_train.shape)
+#   st.write(bias_col.shape)
+#   st.write(x_train.shape)
   x_train = np.hstack((bias_col, x_train))
-  st.write(x_train.shape)
+#   st.write(x_train.shape)
 
   b_hat = np.linalg.inv(x_train.T@x_train)@x_train.T@y_train
-  st.write(b_hat[0], b_hat[1])
+#   st.write(b_hat[0], b_hat[1])
   y_hat = b_hat[0] + b_hat[1]*x_test
 
   
