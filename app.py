@@ -38,7 +38,8 @@ if uploaded_file is not None:
   st.write(x_train.shape)
 
   b_hat = np.linalg.inv(x_train.T@x_train)@x_train.T@y_train
-  y_hat = b_hat*x_test
+  st.write(b_hat)
+  y_hat = b_hat[0] + b_hat[1]*x_test
   
   
   fig, ax = plt.subplots()
