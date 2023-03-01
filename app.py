@@ -10,4 +10,7 @@ if uploaded_file is not None:
   df = pd.read_csv(uploaded_file)
   st.write(df.head())
   
+  y = st.select_box('Choose your response variable (y)', df.columns)
+  st.write('you selected', y)
+  
   
