@@ -19,17 +19,17 @@ if uploaded_file is not None:
   
   data_columns = st.multiselect("Predictor variables (x)", df.columns)
   
-  x = df[df[data_columns]]
-  y = df[df[response_col]]
+  x = df[data_columns]
+  y = df[response_col]
   
   train = df.sample(frac=0.8,random_state=200)
   test = df.drop(train.index)
 
-  x_train = np.array(train[train[data_columns]])
-  x_test = np.array(test[test[response_col]])
+  x_train = np.array(train[data_columns])
+  x_test = np.array(test[response_col])
   
-  y_train = np.array(train[train[data_columns]])
-  y_test = np.array(test[test[response_col]])
+  y_train = np.array(train[data_columns])
+  y_test = np.array(test[response_col])
   
   b_hat = np.linalg.inv(x_train.T@x_train)@x_train.T@y_train
   y_hat = b_hat[0] + b_hat[1]*x_test
